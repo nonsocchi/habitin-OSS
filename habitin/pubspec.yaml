@@ -44,3 +44,12 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/images/
+
+  fonts:    
+    - family: ProductSans
+      fonts: 
+        - asset: assets/fonts/ProductSans-Black.ttf
+        - asset: assets/fonts/ProductSans-Bold.ttf
+        - asset: assets/fonts/ProductSans-Light.ttf
+        - asset: assets/fonts/ProductSans-Medium.ttf
+        - asset: assets/fonts/ProductSans-Regular.ttf
