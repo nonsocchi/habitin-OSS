@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:habitin/src/features/theming/theming.dart';
+import 'package:habitin/src/profile/profile_view.dart';
+import 'package:habitin/src/sample_feature/sample_item_list_view.dart';
 
+import 'features/app_settings/settings_controller.dart';
+import 'features/app_settings/settings_view.dart';
 import 'sample_feature/sample_item_details_view.dart';
-import 'sample_feature/sample_item_list_view.dart';
-import 'settings/settings_controller.dart';
-import 'settings/settings_view.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -56,9 +58,11 @@ class MyApp extends StatelessWidget {
           // Define a light and dark color theme. Then, read the user's
           // preferred ThemeMode (light, dark, or system default) from the
           // SettingsController to display the correct theme.
-          theme: ThemeData(),
-          darkTheme: ThemeData.dark(),
+          theme: Theming.lightTheme,
+          darkTheme: Theming.darkTheme,
+
           themeMode: settingsController.themeMode,
+          debugShowCheckedModeBanner: false,
 
           // Define a function to handle named routes in order to support
           // Flutter web url navigation and deep linking.
@@ -72,8 +76,9 @@ class MyApp extends StatelessWidget {
                   case SampleItemDetailsView.routeName:
                     return const SampleItemDetailsView();
                   case SampleItemListView.routeName:
-                  default:
                     return const SampleItemListView();
+                  default:
+                    return const ProfileView();
                 }
               },
             );
